@@ -39,6 +39,14 @@ Desde la carpeta principal donde esta el archivo preciosSVS.rb ejecutar:
 
 $ ruby preciosSVS.rb
 
+Para configuraciones the path específicas ejecutar
+
+$ bash ./run.sh
+> Please enter username
+> $USER_NAME
+
+Si el resultado no es el esperado, solicite ayuda a gmorales@quaam.cl
+
 Resultados
 
 Los resultados se encuentran en data/SVS_precios.csv en formato CSV (https://es.wikipedia.org/wiki/CSV)
