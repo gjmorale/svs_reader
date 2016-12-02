@@ -3,8 +3,20 @@ require 'watir'
 require 'nokogiri'
 Dir[File.dirname(__FILE__) + '/dev/*.rb'].each {|file| require file }
 
+f_input = f_output = nil
+puts "----- #{ENV["OUTPUT_SVS"]} - #{ENV["INPUT_SVS"]} -----"
 #archivo con precios fondos svs
-doc = File.open("data/SVS_precios.csv",'w')
+if ENV["OUTPUT_SVS"].nil?
+	f_output = File.open("data/SVS_precios.csv",'w')
+else
+	f_output = File.open("#{ENV["OUTPUT_SVS"]}/SVS_precios.csv",'w')
+end
+#archivo con resultados fondos svs
+if ENV["INPUT_SVS"].nil?
+	f_input = File.open("data/instrumentos.txt",'r')
+else
+	f_input = File.open("#{ENV["INPUT_SVS"]}/instrumentos.txt",'r')
+end
 
 #inicio
 date_i = DateCue.new(11, 9, 2016)
@@ -15,17 +27,14 @@ date_f = DateCue.new(14, 9, 2016)
 #paginas a visitar
 instruments = []
 name = code_type = url = nil
-File.open("data/instrumentos.txt",'r') do |file|
-	while (line = file.gets)
-		url ||= line.strip! if code_type
-		code_type ||= line.strip! if name
-		name ||= line.strip!
-		if url and name
-			instruments << Instrument.new(name, code_type, url)
-			name = code_type  = url = nil
-		end
+while (line = f_input.gets)
+	url ||= line.strip! if code_type
+	code_type ||= line.strip! if name
+	name ||= line.strip!
+	if url and name
+		instruments << Instrument.new(name, code_type, url)
+		name = code_type  = url = nil
 	end
-
 end
 
 def progress i,j
@@ -39,7 +48,7 @@ end
 
 b = Watir::Browser.new :phantomjs
 
-doc.write("Date;Type;Code;Serie;Value\n")
+f_output.write("Date;Type;Code;Serie;Value\n")
 instruments.each.with_index do |instrument, j|
 	print "[#{progress j, instruments.size}]."
 	b.goto instrument.url
@@ -90,7 +99,7 @@ instruments.each.with_index do |instrument, j|
 	end
 	#print "." unless b.table.rows.size % 2 == 0
 	print ".."
-	instrument.print doc
+	instrument.print f_output
 	puts "..[100%] #{instrument}"
 end
 

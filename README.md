@@ -33,12 +33,19 @@ Desde la carpeta principal donde esta el archivo _preciosSVS.rb_ ejecutar
 ```zsh
 $ ruby preciosSVS.rb
 ```
+Para configuraciones the path específicas ejecutar
+```zsh
+$ bash ./run.sh
+> Please enter username
+> $USER_NAME
+```
+Si el resultado no es el esperado, solicite ayuda a [Guillermo Morales](gmorales@quaam.cl)
 ### Resultados
 Los resultados se encuentran en _data/SVS_precios.csv_ en formato [CSV](https://es.wikipedia.org/wiki/CSV)
 Los datos están separados por _;_ en el orden _Fecha;Tipo;Código;Serie;Valor_ siendo
 
 * _Fecha: Fecha en formato dd/mm/aaaa_
-* _Tipo: Tipo de código (E.j: nemo)_
+* _Tipo: Tipo de código (E.g: nemo)_
 * _Código: Codigo identificador del instrumento_
 * _Serie: Código de serie a la que pertence la posición_
 * _Valor: Monto registrado_
