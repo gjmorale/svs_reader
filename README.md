@@ -37,7 +37,7 @@ $ ruby preciosSVS.rb
 Los resultados se encuentran en _SVS_precios.csv_ en formato [CSV](https://es.wikipedia.org/wiki/CSV)
 Los datos están separados por _;_ en el orden _Fecha;Tipo;Código;Serie;Valor_ siendo
 
-* ###### Fecha: Fecha en formato dd/mm/aaaa
+###### * Fecha: Fecha en formato dd/mm/aaaa
 * Tipo: Tipo de código (E.j: nemo)
 * Código: Codigo identificador del instrumento
 * Serie: Código de serie a la que pertence la posición
