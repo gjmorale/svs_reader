@@ -1,3 +1,5 @@
+[comment] # (for a user reable version go to https://github.com/gjmorale/svs_reader/blob/master/README.md)
+
 # README
 
 ## SVS Reader
