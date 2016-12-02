@@ -41,7 +41,7 @@ $ ruby preciosSVS.rb
 
 Resultados
 
-Los resultados se encuentran en SVS_precios.csv en formato CSV (https://es.wikipedia.org/wiki/CSV)
+Los resultados se encuentran en data/SVS_precios.csv en formato CSV (https://es.wikipedia.org/wiki/CSV)
 Los datos están separados por ";" en el orden Fecha;Tipo;Código;Serie;Valor siendo
 
  - Fecha: Fecha en formato dd/mm/aaaa

@@ -34,7 +34,7 @@ Desde la carpeta principal donde esta el archivo _preciosSVS.rb_ ejecutar
 $ ruby preciosSVS.rb
 ```
 ### Resultados
-Los resultados se encuentran en _SVS_precios.csv_ en formato [CSV](https://es.wikipedia.org/wiki/CSV)
+Los resultados se encuentran en _data/SVS_precios.csv_ en formato [CSV](https://es.wikipedia.org/wiki/CSV)
 Los datos están separados por _;_ en el orden _Fecha;Tipo;Código;Serie;Valor_ siendo
 
 * _Fecha: Fecha en formato dd/mm/aaaa_
@@ -47,10 +47,11 @@ Date | Type | Code | Serie | Value
 --- | --- | --- | --- | ---
 11/09/2016 | nemo | FIBCI_DEUDABP | BPRIV | 1039,2445
 12/09/2016 | nemo | FIBCI_DEUDABP | I | 1048,6239
-14/09/2016 | nemo | CFICCMAC-I | B | 1434,9329
+13/09/2016 | nemo | CFICCMAC-I | B | 1434,9329
+14/09/2016 | nemo | CFIIMTDC-I | IM | 1069,0860
 
 ### Notas
-Para un instrumento que no se encuentra en SVS, **no** apareceran resultados en la tabla final.
+Para un instrumento que no se encuentra en SVS, **no** aparecerán resultados en la tabla final.
 
 ***
 
