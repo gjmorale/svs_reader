@@ -44,4 +44,4 @@ Los datos están separados por _;_ en el orden _Fecha;Tipo;Código;Serie;Valor_ 
 * _Valor: Monto registrado_
 
 ### Notas
-Para un instrumento que no se encuentra en SVS, no apareceran resultados en la tabla final.
+Para un instrumento que no se encuentra en SVS, **no** apareceran resultados en la tabla final.
