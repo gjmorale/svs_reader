@@ -45,3 +45,6 @@ Los datos están separados por _;_ en el orden _Fecha;Tipo;Código;Serie;Valor_ 
 
 ### Notas
 Para un instrumento que no se encuentra en SVS, **no** apareceran resultados en la tabla final.
+
+###### Código para uso privado.
+###### Utilizar a discreción sin garantías

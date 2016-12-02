@@ -52,4 +52,11 @@ Los datos están separados por ";" en el orden Fecha;Tipo;Código;Serie;Valor si
 
 Notas
 
-Para un instrumento que no se encuentra en SVS, no apareceran resultados en la tabla final.
+Para un instrumento que no se encuentra en SVS, no aparecerán resultados en la tabla final.
+
+
+
+Código para uso privado.
+Utilizar a discreción sin garantías.
+
+Consultas, sugerencias o reclamos dirigirse a Guillermo Morales (gmorales@quaam.cl)
