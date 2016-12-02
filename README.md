@@ -1,4 +1,3 @@
-[comment] # (for a user reable version go to https://github.com/gjmorale/svs_reader/blob/master/README.md)
 
 # README
 
@@ -36,5 +35,13 @@ $ ruby preciosSVS.rb
 ```
 ### Resultados
 Los resultados se encuentran en _SVS_precios.csv_ en formato [CSV](https://es.wikipedia.org/wiki/CSV)
+Los datos están separados por ";" en el orden Fecha;Tipo;Código;Serie;Valor siendo
+
+*Fecha: Fecha en formato dd/mm/aaaa
+*Tipo: Tipo de código (E.j: nemo)
+*Código: Codigo identificador del instrumento
+*Serie: Código de serie a la que pertence la posición
+*Valor: Monto registrado
+
 ### Notas
-Para un instrumento que no se encuentra en SVS, no apareceran resultados en la tabla final
+Para un instrumento que no se encuentra en SVS, no apareceran resultados en la tabla final.
