@@ -43,7 +43,15 @@ Los datos están separados por _;_ en el orden _Fecha;Tipo;Código;Serie;Valor_ 
 * _Serie: Código de serie a la que pertence la posición_
 * _Valor: Monto registrado_
 
+Date | Type | Code | Serie | Value
+--- | --- | --- | --- | ---
+11/09/2016 | nemo | FIBCI_DEUDABP | BPRIV | 1039,2445
+12/09/2016 | nemo | FIBCI_DEUDABP | I | 1048,6239
+14/09/2016 | nemo | CFICCMAC-I | B | 1434,9329
+
 ### Notas
 Para un instrumento que no se encuentra en SVS, **no** apareceran resultados en la tabla final.
----
+
+***
+
 ###### Código para uso privado. Utilizar a discreción sin garantías.
