@@ -14,6 +14,7 @@ else
 end
 #archivo con resultados fondos svs
 if ENV["INPUT_SVS"].nil?
+	raise
 	f_input = File.open("data/Instrumentos.csv",'r')
 else
 	f_input = File.open("#{ENV["INPUT_SVS"]}/Instrumentos.csv",'r')
