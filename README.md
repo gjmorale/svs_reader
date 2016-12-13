@@ -44,7 +44,7 @@ Los datos están separados por _;_ en el orden _tipo;codigo;fecha;valor;p_cierre
 * _Serie: Código de serie a la que pertence la posición_
 
 tipo | codigo | fecha | valor | p_cierre | serie
---- | --- | --- | --- | ---
+--- | --- | --- | --- | --- | ---
 Nemo | BTGBRSHDURA | 16/09/2016 | 988,9074 | p_cierre | A
 Nemo | BTGBRSHDURA | 17/09/2016 | 988,8910 | p_cierre | A
 Nemo | CFISECRFN4 | 16/09/2016 | 1007,1618 | p_cierre | CUATRO
@@ -55,7 +55,7 @@ Nemo | CFISECRFN4 | 17/09/2016 | 1104,1979 | p_cierre | TRES
 ### Notas
 Para un instrumento que no se encuentra en SVS, **no** aparecerán resultados en la tabla final.
 Para verificar casos extraños, revisar _data/log.txt_.
-Para adaptar rutas personalizadas, modificar en _run.sh_ los path en las variables de entorno *INPUT_SVS* y *OUTPUT_SVS* para el usuario específico.
+Para adaptar rutas personalizadas, modificar en _run.sh_ los path en las variables de entorno **INPUT_SVS** y **OUTPUT_SVS** para el usuario específico.
 
 ***
 
