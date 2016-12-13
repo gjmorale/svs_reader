@@ -29,6 +29,7 @@ instruments = []
 name = code_type = url = nil
 f_input.gets
 while (line = f_input.gets)
+	puts "LINE: #{line}"
 	vars = line.split(';')
 	code_type = vars[0]
 	name = vars[1]

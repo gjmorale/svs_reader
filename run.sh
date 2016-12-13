@@ -14,9 +14,9 @@ if [ "$USER" == "$GM" ]; then
 fi
 
 if [ "$USER" == "$JA" ]; then
-	INPUT_SVS="data2"
+	INPUT_SVS="/Users/joseantoniohonorato/Desktop/Import/SVS"
 	export INPUT_SVS
-	OUTPUT_SVS="data2"
+	OUTPUT_SVS="/Users/joseantoniohonorato/Desktop/Import/SVS"
 	export OUTPUT_SVS
 	echo "Welcome José Antonio"
 fi
