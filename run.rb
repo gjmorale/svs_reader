@@ -2,23 +2,31 @@
 require_relative 'preciosSVS'
 
 puts "Please enter username"
-name = STDIN.gets
+name = STDIN.gets.strip
 ja ="jahonorato"
 gm ="gmorales"
+cc ="chico"
 
-INPUT_SVS = OUTPUT_SVS = nil
+input = output = nil
 
 if name == gm
-	INPUT_SVS ="/home/finantecdeveloper/Dropbox (Finantec)/Quaam - Operaciones/Macros/SVS/data"
-	OUTPUT_SVS ="/home/finantecdeveloper/Dropbox (Finantec)/Quaam - Operaciones/Macros/SVS/data"
-	echo "Welcome Guillermo"
+	input ="/home/finantecdeveloper/Dropbox (Finantec)/Quaam - Operaciones/Macros/SVS/data"
+	output ="/home/finantecdeveloper/Dropbox (Finantec)/Quaam - Operaciones/Macros/SVS/data"
+	puts "Welcome Guillermo"
 end
 
 if name == ja
-	INPUT_SVS ="/Users/joseantoniohonorato/Desktop/Import/SVS"
-	OUTPUT_SVS ="/Users/joseantoniohonorato/Desktop/Import/SVS"
-	echo "Welcome José Antonio"
+	input ="/Users/joseantoniohonorato/Desktop/Import/SVS"
+	output ="/Users/joseantoniohonorato/Desktop/Import/SVS"
+	puts "Welcome José Antonio"
 end
 
-p = Reader.new(INPUT_SVS, OUTPUT_SVS)
+if name == cc
+	input ="/Users/windows7/Dropbox (Finantec)/JH-CC/varios"
+	output ="/Users/windows7/Dropbox (Finantec)/JH-CC/varios"
+	puts "Welcome Christian Corrales"
+end
+
+p = Reader.new(input, output)
 p.run
+

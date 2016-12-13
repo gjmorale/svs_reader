@@ -9,6 +9,7 @@ Primero [instalar watir](https://gist.github.com/enroxorz/968527/f7d5e064eba5add
 ```zsh
 $ ruby install_phantomjs.sh
 ```
+#INCLUIR: http://stackoverflow.com/questions/19862276/unable-to-find-the-chromedriver-executable
 ### Setup
 Preparar instrumentos en _data/Instrumentos.rb_ siguiendo el formato [CSV](https://es.wikipedia.org/wiki/CSV): 
 ```
