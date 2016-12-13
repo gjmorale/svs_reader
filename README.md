@@ -10,26 +10,18 @@ Primero [instalar watir](https://gist.github.com/enroxorz/968527/f7d5e064eba5add
 $ ruby install_phantomjs.sh
 ```
 ### Setup
-Preparar instrumentos en _data/instrumentos.rb_ siguiendo el formato: 
+Preparar instrumentos en _data/Instrumentos.rb_ siguiendo el formato [CSV](https://es.wikipedia.org/wiki/CSV): 
 ```
-CODE
-CODE_TYPE
-URL
+id_ti;id_ti_valor;Serie;URL;fecha_inicio;fecha_fin
 ```
 E.g:
 ```
-CFIBTGRI
-nemo
-http://www.svs.cl/institucional/mercados/entidad.php?...
-FIBCI_DEUDABP
-nemo
-http://www.svs.cl/institucional/mercados/entidad.php?...
-CFIFALCTAC
-nemo
-http://www.svs.cl/institucional/mercados/entidad.php?...
+Nemo;BTGBRSHDURA;;http://www.svs.cl/entidad.php?9361=7;14/9/2016;17/9/2016
+Nemo;CFISECRFN4;CUATRO;http://www.svs.cl/entidad.php?9117=7;14/9/2016;17/9/2016
+Nemo;CFISECRFN4;TRES;http://www.svs.cl/entidad.php?9117=7;14/9/2016;17/9/2016
 ```
 ### Ejecutar
-Desde la carpeta principal donde esta el archivo _preciosSVS.rb_ ejecutar
+Desde la carpeta principal donde estan los archivos _preciosSVS.rb_ y _run.sh_ ejecutar
 ```zsh
 $ ruby preciosSVS.rb
 ```
@@ -42,23 +34,28 @@ $ bash ./run.sh
 Si el resultado no es el esperado, solicite ayuda a [Guillermo Morales](gmorales@quaam.cl)
 ### Resultados
 Los resultados se encuentran en _data/SVS_precios.csv_ en formato [CSV](https://es.wikipedia.org/wiki/CSV)
-Los datos están separados por _;_ en el orden _Fecha;Tipo;Código;Serie;Valor_ siendo
+Los datos están separados por _;_ en el orden _tipo;codigo;fecha;valor;p_cierre;serie_ siendo
 
-* _Fecha: Fecha en formato dd/mm/aaaa_
 * _Tipo: Tipo de código (E.g: nemo)_
 * _Código: Codigo identificador del instrumento_
-* _Serie: Código de serie a la que pertence la posición_
+* _Fecha: Fecha en formato dd/mm/aaaa_
 * _Valor: Monto registrado_
+* _Precio Cierre: PlaceHolder para vector precio_
+* _Serie: Código de serie a la que pertence la posición_
 
-Date | Type | Code | Serie | Value
+tipo | codigo | fecha | valor | p_cierre | serie
 --- | --- | --- | --- | ---
-11/09/2016 | nemo | FIBCI_DEUDABP | BPRIV | 1039,2445
-12/09/2016 | nemo | FIBCI_DEUDABP | I | 1048,6239
-13/09/2016 | nemo | CFICCMAC-I | B | 1434,9329
-14/09/2016 | nemo | CFIIMTDC-I | IM | 1069,0860
+Nemo | BTGBRSHDURA | 16/09/2016 | 988,9074 | p_cierre | A
+Nemo | BTGBRSHDURA | 17/09/2016 | 988,8910 | p_cierre | A
+Nemo | CFISECRFN4 | 16/09/2016 | 1007,1618 | p_cierre | CUATRO
+Nemo | CFISECRFN4 | 17/09/2016 | 1007,1956 | p_cierre | CUATRO
+Nemo | CFISECRFN4 | 16/09/2016 | 1104,1448 | p_cierre | TRES
+Nemo | CFISECRFN4 | 17/09/2016 | 1104,1979 | p_cierre | TRES
 
 ### Notas
 Para un instrumento que no se encuentra en SVS, **no** aparecerán resultados en la tabla final.
+Para verificar casos extraños, revisar _data/log.txt_.
+Para adaptar rutas personalizadas, modificar en _run.sh_ los path en las variables de entorno *INPUT_SVS* y *OUTPUT_SVS* para el usuario específico.
 
 ***
 

@@ -3,37 +3,42 @@ require 'watir'
 require 'nokogiri'
 Dir[File.dirname(__FILE__) + '/dev/*.rb'].each {|file| require file }
 
-f_input = f_output = nil
-puts "----- #{ENV["OUTPUT_SVS"]} - #{ENV["INPUT_SVS"]} -----"
+f_input = f_output = f_log = nil
 #archivo con precios fondos svs
 if ENV["OUTPUT_SVS"].nil?
 	f_output = File.open("data/SVS_precios.csv",'w')
+	f_log = File.open("data/log.txt",'w')
 else
 	f_output = File.open("#{ENV["OUTPUT_SVS"]}/SVS_precios.csv",'w')
+	f_log = File.open("#{ENV["OUTPUT_SVS"]}/log.txt",'w')
 end
 #archivo con resultados fondos svs
 if ENV["INPUT_SVS"].nil?
-	f_input = File.open("data/instrumentos.txt",'r')
+	f_input = File.open("data/Instrumentos.csv",'r')
 else
-	f_input = File.open("#{ENV["INPUT_SVS"]}/instrumentos.txt",'r')
+	f_input = File.open("#{ENV["INPUT_SVS"]}/Instrumentos.csv",'r')
 end
 
-#inicio
-date_i = DateCue.new(11, 9, 2016)
-
-#fin
-date_f = DateCue.new(14, 9, 2016)
+puts "----- From: #{f_input.path} - To: #{f_output.path} -----"
+#inicio y fin
+date_i = date_f = nil
 
 #paginas a visitar
 instruments = []
 name = code_type = url = nil
+f_input.gets
 while (line = f_input.gets)
-	url ||= line.strip! if code_type
-	code_type ||= line.strip! if name
-	name ||= line.strip!
-	if url and name
-		instruments << Instrument.new(name, code_type, url)
-		name = code_type  = url = nil
+	vars = line.split(';')
+	code_type = vars[0]
+	name = vars[1]
+	serie = vars[2]
+	url = vars[3]
+	date_i = DateCue.new(vars[4]) if date_i.nil?
+	date_f = DateCue.new(vars[5]) if date_f.nil?
+	if instrument = instruments.select{|i| i.code == name}[0]
+		instrument.add_serie(serie)
+	else
+		instruments << Instrument.new(name, code_type, url, serie)
 	end
 end
 
@@ -48,7 +53,7 @@ end
 
 b = Watir::Browser.new :phantomjs
 
-f_output.write("Date;Type;Code;Serie;Value\n")
+f_output.write("tipo;codigo;fecha;valor;p_cierre;serie\n")
 instruments.each.with_index do |instrument, j|
 	print "[#{progress j, instruments.size}]."
 	b.goto instrument.url
@@ -84,22 +89,23 @@ instruments.each.with_index do |instrument, j|
 			
 	end
 	print ".."
-	#puts ("#{b.table.ths[i_date].text}, #{b.table.ths[i_serie].text}, #{b.table.ths[i_value].text} ")
 	rows = b.table.rows
 	rows.each.with_index do |row, i|
-		#puts "SIZE: #{row.tds.size}"
 		unless row.tds.size == 0
 			serie = instrument.get_serie(row.tds[i_serie].text)
-			serie.positions << Position.new(row.tds[i_date].text, row.tds[i_value].text)
+			if serie
+				serie.positions << Position.new(row.tds[i_date].text, row.tds[i_value].text) 
+			else
+				f_log.write("Skipped serie #{row.tds[i_serie].text} for #{instrument.code} beacuse it didn't match #{instrument.series.first.name}\n")
+			end
 			print "." if (i-1) % ((rows.size-1)/4) == 0 if rows.size >= 4
 		end
 	end
 	if rows.size < 4
 		print "...."
 	end
-	#print "." unless b.table.rows.size % 2 == 0
 	print ".."
-	instrument.print f_output
-	puts "..[100%] #{instrument}"
+	instrument.print f_output, f_log
+	puts "..[Done] #{instrument}"
 end
 
