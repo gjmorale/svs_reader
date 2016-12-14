@@ -6,10 +6,16 @@
 Lee contenidos de series para instrumentos financieros en  [SVS](http://www.svs.cl/)
 ### Instalar
 Primero [instalar watir](https://gist.github.com/enroxorz/968527/f7d5e064eba5addb3a998ce7e1c8dc4ca4cd1563). Luego [instalar phantomjs](https://gist.github.com/julionc/7476620) desde la carpeta principal
+* __Linux:__
 ```zsh
 $ ruby install_phantomjs.sh
 ```
-#INCLUIR: http://stackoverflow.com/questions/19862276/unable-to-find-the-chromedriver-executable
+* __Windows:__ 
+
+...Descomprimir archivos de _phantomjs-2.1.1-windows.zip_ en ubicación favorita.
+...Luego crear la variable de entorno _webdriver.phantomjs.driver_ en:
+..* Mi Equipo > Propiedades > Administración Avanzada > Variables de Entorno > Nueva
+
 ### Setup
 Preparar instrumentos en _data/Instrumentos.rb_ siguiendo el formato [CSV](https://es.wikipedia.org/wiki/CSV): 
 ```
@@ -28,7 +34,7 @@ $ ruby preciosSVS.rb
 ```
 Para configuraciones the path específicas ejecutar
 ```zsh
-$ bash ./run.sh
+$ ruby run.rb
 > Please enter username
 > $USER_NAME
 ```
@@ -58,6 +64,7 @@ Nemo | CFISECRFN4 | 17/09/2016 | 1104,1979 | p_cierre | TRES
 > * Para verificar casos extraños, revisar _data/log.txt_.
 > * Para adaptar rutas personalizadas, modificar en _run.sh_ los path en las variables de entorno **INPUT_SVS** y **OUTPUT_SVS** para el usuario específico.
 > 
+
 ***
 
 ###### Código para uso privado. Utilizar a discreción sin garantías.
