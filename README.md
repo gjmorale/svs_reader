@@ -67,7 +67,7 @@ Nemo | CFISECRFN4 | 17/09/2016 | 1104,1979 | p_cierre | TRES
 > ### Notas
 > * Para un instrumento que no se encuentra en SVS, **no** aparecerán resultados en la tabla final.
 > * Para verificar casos extraños, revisar _data/log.txt_.
-> * Para adaptar rutas personalizadas, modificar en _run.sh_ los path en las variables de entorno **INPUT_SVS** y **OUTPUT_SVS** para el usuario específico.
+> * Para adaptar rutas personalizadas, modificar en _run.rb_ los path en las variables de entorno **INPUT_SVS** y **OUTPUT_SVS** para el usuario específico.
 > * Para problemas con instalación en windows, copiar _bin/phantomjs.exe_ un directorio más arriba (mismo que _bin_)
 > * Para problemas de gemas con watir, seguir [estos pasos](http://guides.rubygems.org/ssl-certificate-update/)
 
