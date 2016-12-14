@@ -5,11 +5,11 @@
 
 Lee contenidos de series para instrumentos financieros en  [SVS](http://www.svs.cl/)
 ### Instalar
-####[Instalar watir](https://gist.github.com/enroxorz/968527/f7d5e064eba5addb3a998ce7e1c8dc4ca4cd1563). 
+####[Instalar watir](https://gist.github.com/enroxorz/968527/f7d5e064eba5addb3a998ce7e1c8dc4ca4cd1563): Ejecutar
 ```zsh
 $ gem install watir
 ```
-####[Instalar phantomjs](https://gist.github.com/julionc/7476620) desde la carpeta principal
+####[Instalar phantomjs](https://gist.github.com/julionc/7476620): Desde la carpeta principal
 * __Linux:__ Ejecutar
 ```zsh
 $ ruby install_phantomjs.sh
