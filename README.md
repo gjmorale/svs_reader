@@ -6,13 +6,13 @@
 Lee contenidos de series para instrumentos financieros en  [SVS](http://www.svs.cl/)
 ### Instalar
 Primero [instalar watir](https://gist.github.com/enroxorz/968527/f7d5e064eba5addb3a998ce7e1c8dc4ca4cd1563). Luego [instalar phantomjs](https://gist.github.com/julionc/7476620) desde la carpeta principal
-* __Linux:__
+* __Linux:__ Ejecutar
 ```zsh
 $ ruby install_phantomjs.sh
 ```
-* __Windows:__ 
+* __Windows:__ SEguir estos pasos
   1. Descomprimir archivos de _phantomjs-2.1.1-windows.zip_ en ubicación favorita.
-  2. Luego crear la variable de entorno _webdriver.phantomjs.driver_ en:
+  2. Crear la variable de entorno _webdriver.phantomjs.driver_ en:
     * _Mi Equipo > Propiedades > Administración Avanzada > Variables de Entorno > Nueva_
 
 ### Setup
