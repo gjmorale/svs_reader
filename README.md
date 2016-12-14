@@ -11,9 +11,9 @@ Primero [instalar watir](https://gist.github.com/enroxorz/968527/f7d5e064eba5add
 $ ruby install_phantomjs.sh
 ```
 * __Windows:__ 
-  Descomprimir archivos de _phantomjs-2.1.1-windows.zip_ en ubicación favorita.
-  Luego crear la variable de entorno _webdriver.phantomjs.driver_ en:
-  * Mi Equipo > Propiedades > Administración Avanzada > Variables de Entorno > Nueva
+  * Descomprimir archivos de _phantomjs-2.1.1-windows.zip_ en ubicación favorita.
+  * Luego crear la variable de entorno _webdriver.phantomjs.driver_ en:
+  * _Mi Equipo > Propiedades > Administración Avanzada > Variables de Entorno > Nueva_
 
 ### Setup
 Preparar instrumentos en _data/Instrumentos.rb_ siguiendo el formato [CSV](https://es.wikipedia.org/wiki/CSV): 
