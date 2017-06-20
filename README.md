@@ -5,11 +5,22 @@
 
 Lee contenidos de series para instrumentos financieros en  [SVS](http://www.svs.cl/)
 ### Instalar
-Primero [instalar watir](https://gist.github.com/enroxorz/968527/f7d5e064eba5addb3a998ce7e1c8dc4ca4cd1563). Luego [instalar phantomjs](https://gist.github.com/julionc/7476620) desde la carpeta principal
+####[Instalar watir](https://gist.github.com/enroxorz/968527/f7d5e064eba5addb3a998ce7e1c8dc4ca4cd1563): Ejecutar
+```zsh
+$ gem install watir
+```
+####[Instalar phantomjs](https://gist.github.com/julionc/7476620): Desde la carpeta principal
+* __Linux:__ Ejecutar
 ```zsh
 $ ruby install_phantomjs.sh
 ```
-#INCLUIR: http://stackoverflow.com/questions/19862276/unable-to-find-the-chromedriver-executable
+* __Windows:__ Seguir estos pasos
+  1. Descomprimir archivos de _phantomjs-2.1.1-windows.zip_ en **_ubicación favorita_**.
+  2. Crear la variable de entorno _webdriver.phantomjs.driver_ en:
+    * _Mi Equipo > Propiedades > Administración Avanzada > Variables de Entorno > Nueva_
+    * Nombre de Variable : _webdriver.phantomjs.driver_
+    * Ruta de Variable : **_ubicación favorita_**
+
 ### Setup
 Preparar instrumentos en _data/Instrumentos.rb_ siguiendo el formato [CSV](https://es.wikipedia.org/wiki/CSV): 
 ```
@@ -26,9 +37,9 @@ Desde la carpeta principal donde estan los archivos _preciosSVS.rb_ y _run.sh_ e
 ```zsh
 $ ruby preciosSVS.rb
 ```
-Para configuraciones the path específicas ejecutar
+Para configuraciones de path específicas ejecutar
 ```zsh
-$ bash ./run.sh
+$ ruby run.rb
 > Please enter username
 > $USER_NAME
 ```
@@ -56,8 +67,10 @@ Nemo | CFISECRFN4 | 17/09/2016 | 1104,1979 | p_cierre | TRES
 > ### Notas
 > * Para un instrumento que no se encuentra en SVS, **no** aparecerán resultados en la tabla final.
 > * Para verificar casos extraños, revisar _data/log.txt_.
-> * Para adaptar rutas personalizadas, modificar en _run.sh_ los path en las variables de entorno **INPUT_SVS** y **OUTPUT_SVS** para el usuario específico.
-> 
+> * Para adaptar rutas personalizadas, modificar en _run.rb_ los path en las variables de entorno **INPUT_SVS** y **OUTPUT_SVS** para el usuario específico.
+> * Para problemas con instalación en windows, copiar _bin/phantomjs.exe_ un directorio más arriba (mismo que _bin_)
+> * Para problemas de gemas con watir, seguir [estos pasos](http://guides.rubygems.org/ssl-certificate-update/)
+
 ***
 
 ###### Código para uso privado. Utilizar a discreción sin garantías.
